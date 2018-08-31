@@ -5,8 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HoloMake"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="HoloMake" Height="577.78" Width="895.939" Background="Black" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="0,0,2,-2">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="#FF344869" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <MediaElement x:Name="videoMain" Source="C:\Users\gabrielsena\Videos\Band_of_Brothers_Trailer.mp4" LoadedBehavior="Manual" MediaOpened="videoMain_MediaOpened" Margin="55,83,235,145" />
+       
+        <Button x:Name="addVideo" Content="..." HorizontalAlignment="Left" Margin="51,46,0,0" VerticalAlignment="Top" Width="24" RenderTransformOrigin="3.194,1.313" Click="addVideo_Click" Height="18"/>
+        <Slider x:Name="barrinha" HorizontalAlignment="Left" Margin="138,417,0,0" VerticalAlignment="Top" Width="504" ValueChanged="Slider_ValueChanged"/> 
+
+        <TextBox x:Name="txtFile" HorizontalAlignment="Left" Height="21" Margin="80,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="562"/>
+        <Slider x:Name="volu" VerticalAlignment="Center" ValueChanged="ChangeMediaVolume" Minimum="0" Maximum="1" Value="0.5" Width="70" Margin="572,440,244,91" RenderTransformOrigin="0.571,-2.389"/> 
+        <Label x:Name="lblDuration" Content="00:00" HorizontalAlignment="Left" Margin="69,409,0,0" VerticalAlignment="Top" Background="Black" Foreground="White" FontSize="16" RenderTransformOrigin="-0.761,1.138"/>
+
+        <Button x:Name="btnPlayPause" Click="btnPlayPause_Click" Margin="317,440,519,57" RenderTransformOrigin="1.99,0.604" BorderBrush="{x:Null}" Style="{StaticResource MyButton}" Focusable="False">
+            <Button.Background>
+                <ImageBrush ImageSource="/icons/play_ic.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Hide: On" HorizontalAlignment="Left" Margin="138,492,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnLigDes" Content="Ligar" HorizontalAlignment="Left" Margin="221,472,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.275,1.016" Click="btnLigDes_Click"/>
     </Grid>
 </Window>

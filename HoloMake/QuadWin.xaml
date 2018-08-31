@@ -1,0 +1,37 @@
+﻿<Window x:Class="HoloMake.QuadWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HoloMake"
+        mc:Ignorable="d"
+        Title="Quadrupicação" Height="555.789" Width="891.579" WindowStartupLocation="CenterScreen" Background="Black">
+    <Grid>
+        <Canvas x:Name="myCanvas" SizeChanged="Canvas_SizeChanged" Width="640" Height="480">
+            <Rectangle Fill="Blue" Name="displayTop" Width="200" Height="80" Canvas.Left="219" Canvas.Top="32">
+                <Rectangle.LayoutTransform>
+                    <RotateTransform Angle="360"/>
+                </Rectangle.LayoutTransform>
+            </Rectangle>
+            <Rectangle Fill="Blue" Name="displayLeft" Width="200" Height="80" Canvas.Left="458" Canvas.Top="114">
+                <Rectangle.LayoutTransform>
+                    <RotateTransform Angle="90"/>
+                </Rectangle.LayoutTransform>
+            </Rectangle>
+            <Rectangle Fill="Blue" Name="displayRight" Width="200" Height="80" Canvas.Left="220" Canvas.Top="311">
+                <Rectangle.LayoutTransform>
+                    <RotateTransform Angle="180"/>
+                </Rectangle.LayoutTransform>
+            </Rectangle>
+            <Rectangle Fill="Blue" Name="displayBottom" Width="200" Height="80" Canvas.Left="105" Canvas.Top="116" RenderTransformOrigin="0.874,0.575">
+                <Rectangle.LayoutTransform>
+                    <RotateTransform Angle="270"/>
+                </Rectangle.LayoutTransform>
+            </Rectangle>
+            <Button x:Name="btnMaisW" Content="+ Width" Canvas.Left="674" Canvas.Top="402" Width="76" Click="btnMaisW_Click"/>
+            <Button x:Name="btnMenosW" Content="- Width" Canvas.Left="594" Canvas.Top="402" Width="74" Click="btnMenosW_Click"/>
+            <Button x:Name="btnMenosH" Content="- Height" Canvas.Left="632" Canvas.Top="468" Width="74" RenderTransformOrigin="-0.845,0.425" Click="btnMenosH_Click"/>
+            <Button x:Name="btnMaisH" Click="btnMaisH_Click" Content="+ Height" Canvas.Left="632" Canvas.Top="442" Width="74"/>
+        </Canvas>
+    </Grid>
+</Window>
