@@ -48,6 +48,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=1.4.17.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.1.4.17\lib\net\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -56,6 +59,12 @@
     </ApplicationDefinition>
     <Compile Include="QuadWin.xaml.cs">
       <DependentUpon>QuadWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsQuad.xaml.cs">
+      <DependentUpon>SettingsQuad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen.xaml.cs">
+      <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -70,6 +79,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="QuadWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsQuad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SplashScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -92,6 +109,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -102,9 +120,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icons\pause_ic.png" />
-    <Resource Include="icons\play_ic.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="spash_itens\holograma_gira.gif" />
+    <Resource Include="icons\logo_window.png" />
+    <Resource Include="spash_itens\name_holomake.gif" />
+    <Resource Include="spash_itens\three_points.gif" />
+    <Resource Include="icons\ic_power_on.ico" />
+    <Resource Include="icons\ic_play.ico" />
+    <Resource Include="icons\ic_hide_on.ico" />
+    <Resource Include="icons\ic_fullscreen_on.ico" />
+    <Resource Include="icons\ic_settingsQuad.ico" />
     <Content Include="things\Band_of_Brothers_Trailer.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

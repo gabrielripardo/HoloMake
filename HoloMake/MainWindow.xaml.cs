@@ -24,7 +24,7 @@ namespace HoloMake
         Image icPlayPause;
         DispatcherTimer timer;
         bool pause;
-
+        QuadWin quadWin;
 
         public MainWindow()
         {
@@ -59,7 +59,8 @@ namespace HoloMake
         }
         private void btnLigDes_Click(object sender, RoutedEventArgs e)
         {
-            new QuadWin(videoMain).Show();
+            quadWin = new QuadWin(videoMain);
+            quadWin.Show();
         }
 
         private void addVideo_Click(object sender, RoutedEventArgs e)
@@ -95,6 +96,22 @@ namespace HoloMake
         {
             Title = volu.Value.ToString();
             videoMain.Volume = (double)volu.Value;
+        }
+
+        private void btnHideShow_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSettingsQuad_Click(object sender, RoutedEventArgs e)
+        {
+            new SettingsQuad().Show();
+        }
+
+        private void btnFullScreen_Click(object sender, RoutedEventArgs e)
+        {
+            quadWin.WindowState = WindowState.Maximized;
+            quadWin.WindowStyle = WindowStyle.None;
         }
     }
 }

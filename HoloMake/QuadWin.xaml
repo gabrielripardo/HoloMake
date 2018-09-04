@@ -7,31 +7,55 @@
         mc:Ignorable="d"
         Title="Quadrupicação" Height="555.789" Width="891.579" WindowStartupLocation="CenterScreen" Background="Black">
     <Grid>
-        <Canvas x:Name="myCanvas" SizeChanged="Canvas_SizeChanged" Width="640" Height="480">
-            <Rectangle Fill="Blue" Name="displayTop" Width="200" Height="80" Canvas.Left="219" Canvas.Top="32">
+        <Canvas x:Name="myCanvas" SizeChanged="Canvas_SizeChanged">
+            <Rectangle Fill="Blue" Name="displayTop" Width="200" Height="120" Canvas.Left="335" Canvas.Top="40">
                 <Rectangle.LayoutTransform>
                     <RotateTransform Angle="360"/>
                 </Rectangle.LayoutTransform>
             </Rectangle>
-            <Rectangle Fill="Blue" Name="displayLeft" Width="200" Height="80" Canvas.Left="458" Canvas.Top="114">
+            <Rectangle Fill="Blue" Name="displayLeft" Width="200" Height="120" Canvas.Left="179" Canvas.Top="162">
                 <Rectangle.LayoutTransform>
                     <RotateTransform Angle="90"/>
                 </Rectangle.LayoutTransform>
             </Rectangle>
-            <Rectangle Fill="Blue" Name="displayRight" Width="200" Height="80" Canvas.Left="220" Canvas.Top="311">
-                <Rectangle.LayoutTransform>
-                    <RotateTransform Angle="180"/>
-                </Rectangle.LayoutTransform>
-            </Rectangle>
-            <Rectangle Fill="Blue" Name="displayBottom" Width="200" Height="80" Canvas.Left="105" Canvas.Top="116" RenderTransformOrigin="0.874,0.575">
+            <Rectangle Fill="Blue" Name="displayRight" Width="200" Height="120" Canvas.Left="578" Canvas.Top="166" RenderTransformOrigin="0.495,0.458">
                 <Rectangle.LayoutTransform>
                     <RotateTransform Angle="270"/>
                 </Rectangle.LayoutTransform>
             </Rectangle>
-            <Button x:Name="btnMaisW" Content="+ Width" Canvas.Left="674" Canvas.Top="402" Width="76" Click="btnMaisW_Click"/>
-            <Button x:Name="btnMenosW" Content="- Width" Canvas.Left="594" Canvas.Top="402" Width="74" Click="btnMenosW_Click"/>
-            <Button x:Name="btnMenosH" Content="- Height" Canvas.Left="632" Canvas.Top="468" Width="74" RenderTransformOrigin="-0.845,0.425" Click="btnMenosH_Click"/>
-            <Button x:Name="btnMaisH" Click="btnMaisH_Click" Content="+ Height" Canvas.Left="632" Canvas.Top="442" Width="74"/>
+            <Rectangle Fill="Blue" Name="displayBottom" Width="200" Height="120" Canvas.Left="335" Canvas.Top="365">
+                <Rectangle.LayoutTransform>
+                    <RotateTransform Angle="180"/>
+                </Rectangle.LayoutTransform>
+            </Rectangle>
+
+            <Button x:Name="btnMaisW" Content="+ Width" Canvas.Left="802" Canvas.Top="427" Width="76" Click="btnMaisW_Click"/>
+            <Button x:Name="btnMenosW" Content="- Width" Canvas.Left="722" Canvas.Top="427" Width="74" Click="btnMenosW_Click"/>
+            <Button x:Name="btnMenosH" Content="- Height" Canvas.Left="760" Canvas.Top="493" Width="74" RenderTransformOrigin="-0.845,0.425" Click="btnMenosH_Click"/>
+            <Button x:Name="btnMaisH" Click="btnMaisH_Click" Content="+ Height" Canvas.Left="760" Canvas.Top="467" Width="74"/>
+            <Button x:Name="btnAfastaH" Content="&lt;&lt;&lt; H &gt;&gt;&gt;" Canvas.Left="760" Canvas.Top="242" Width="75" Click="btnAfastaH_Click"/>
+            <Button x:Name="btnAproxH" Content="&gt;&gt;&gt; H &lt;&lt;&lt;" Canvas.Left="760" Canvas.Top="267" Width="75" Height="22" Click="btnAproxH_Click"/>
+            <Slider x:Name="sliderHT" Canvas.Left="-191" Canvas.Top="231" Width="412" RenderTransformOrigin="0.5,0.5" ValueChanged="sliderHT_ValueChanged">
+                <Slider.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90
+                                         "/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Slider.RenderTransform>
+            </Slider>
+            <Slider x:Name="sliderH" Canvas.Left="-166" Canvas.Top="231" Width="413" RenderTransformOrigin="0.5,0.5" Height="19" ValueChanged="sliderH_ValueChanged">
+                <Slider.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Slider.RenderTransform>
+            </Slider>
         </Canvas>
     </Grid>
 </Window>
