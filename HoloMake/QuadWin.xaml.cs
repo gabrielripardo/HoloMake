@@ -21,8 +21,8 @@ namespace HoloMake
     {
         UIElement displayTopObj;
         UIElement displayBottomObj;
-        double old_Top_DisplayTop;
-        double old_Top_DisplayBottom;     
+        UIElement displayLeftObj;
+        UIElement displayRightObj;            
 
         public QuadWin(MediaElement videoM)
         {
@@ -33,33 +33,28 @@ namespace HoloMake
             displayRight.Fill = new VisualBrush(videoM);
             displayBottom.Fill = new VisualBrush(videoM);
 
-            double maxComp = Width / 2;
+            //Seta o valor máximo das barras
+            double maxComp = Height / 4;
             sliderHT.Maximum = maxComp;
-            sliderHT.Value = maxComp / 2;
-        }
 
-        private void btnMenosW_Click(object sender, RoutedEventArgs e)
-        {
+            maxComp = Width / 3;
+            sliderWT.Maximum = maxComp;
 
-        }
+            sliderH.Maximum = 500;
+            sliderW.Maximum = 500;
 
-        private void btnMaisW_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnMaisH_Click(object sender, RoutedEventArgs e)
-        {
-                        
-            UIElement displayTopObj = displayTop;
-            double old_Left = Canvas.GetLeft(displayTopObj);
+            //Seta o valor atual das barras
+            UIElement displayTopObj = displayTop;            
             double old_Top = Canvas.GetTop(displayTopObj);
+            sliderHT.Value = old_Top;
 
-            if(old_Top+10 > 0) { 
-                displayTop.Height += 10;
-                Canvas.SetTop(displayTopObj, old_Top - 10);
-            }
-        }
+            UIElement displayLeftObj = displayLeft;
+            double old_Left = Canvas.GetLeft(displayLeftObj);
+            sliderWT.Value = old_Left;
+
+            sliderH.Value = displayTop.Height;
+            sliderW.Value = displayTop.Width;
+        }   
 
         private void btnMenosH_Click(object sender, RoutedEventArgs e)
         {            
@@ -103,6 +98,10 @@ namespace HoloMake
 
             Title = "Height = "+new_Height+"Width = "+new_Width;
 
+            //Settings Slider
+            sliderHT.Maximum = new_Height/4;
+            sliderWT.Maximum = new_Width/3;
+
             //</ init >
             //----< adapt all children >----
 
@@ -126,72 +125,47 @@ namespace HoloMake
             //----</ adapt all children >----
             //----------------</ Canvas_SizeChanged() >----------------
         }
-
-        private void btnAfastaH_Click(object sender, RoutedEventArgs e)
-        {            
-            UIElement displayTopObj = displayTop;
-            UIElement displayBottomObj = displayBottom;
-            double old_Top_DisplayTop = Canvas.GetTop(displayTopObj);
-            double old_Top_DisplayBottom = Canvas.GetTop(displayBottomObj);
-
-            if (old_Top_DisplayTop > 0)
-            {
-                Canvas.SetTop(displayTopObj, old_Top_DisplayTop - 10);
-                Canvas.SetTop(displayBottomObj, old_Top_DisplayBottom + 10);
-            }            
+     
+        
+        private void sliderW_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            displayTop.Width = sliderW.Value;
+            displayLeft.Width = sliderW.Value;
+            displayRight.Width = sliderW.Value;
+            displayBottom.Width = sliderW.Value;
         }
 
-        private void btnAproxH_Click(object sender, RoutedEventArgs e)
+        private void sliderH_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            UIElement displayTopObj = displayTop;
-            UIElement displayBottomObj = displayBottom;
-            double old_Top_DisplayTop = Canvas.GetTop(displayTopObj);
-            double old_Top_DisplayBottom = Canvas.GetTop(displayBottomObj);
+            UIElement displayTopObj = displayTop;         
+            double old_Top = Canvas.GetTop(displayTopObj);
+            
+            displayTop.Height = sliderH.Value;
+            displayLeft.Height = sliderH.Value;
+            displayRight.Height = sliderH.Value;
+            displayBottom.Height = sliderH.Value;
+            // Canvas.SetTop(displayTopObj, old_Top - sliderH.Value);
 
-            if (old_Top_DisplayTop > 0)
-            {
-                Canvas.SetTop(displayTopObj, old_Top_DisplayTop + 1);
-                Canvas.SetTop(displayBottomObj, old_Top_DisplayBottom - 1);
-            }
         }
 
         private void sliderHT_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             Title = sliderHT.Value.ToString();
             displayTopObj = displayTop;
-            displayBottomObj = displayBottom;
-
-            old_Top_DisplayTop = Canvas.GetTop(displayTopObj);
-            old_Top_DisplayBottom = Canvas.GetTop(displayBottomObj);
+            displayBottomObj = displayBottom;            
 
             Canvas.SetTop(displayTopObj, sliderHT.Value);
-          //  Canvas.SetTop(displayBottomObj, sliderHT.Value - 1);
-
-            /*
-            if (sliderHT.Value > 0 && sliderHT.Value < 60)
-            {
-                Canvas.SetTop(displayTopObj, old_Top_DisplayTop + 1);
-                Canvas.SetTop(displayBottomObj, old_Top_DisplayBottom - 1);
-            }
-            else
-            {
-                Canvas.SetTop(displayTopObj, old_Top_DisplayTop - 1);
-                Canvas.SetTop(displayBottomObj, old_Top_DisplayBottom + 1);
-            }
-            */
+            Canvas.SetTop(displayBottomObj, sliderHT.Maximum * 3 - sliderHT.Value);
         }
 
-        private void sliderH_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void sliderWT_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            UIElement displayTopObj = displayTop;
-            double old_Left = Canvas.GetLeft(displayTopObj);
-            double old_Top = Canvas.GetTop(displayTopObj);
+            Title = sliderHT.Value.ToString();
+            displayLeftObj = displayLeft;
+            displayRightObj = displayRight;            
 
-            if (old_Top + 10 > 0)
-            {
-                displayTop.Height += 10;
-                Canvas.SetTop(displayTopObj, old_Top - 10);
-            }
-        }
+            Canvas.SetLeft(displayLeftObj, sliderWT.Value);
+            Canvas.SetLeft(displayRightObj, sliderWT.Maximum * 2.5 - sliderWT.Value);
+        }        
     }
 }
