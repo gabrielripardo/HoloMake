@@ -29,46 +29,41 @@
 
     <Grid Margin="0,0,2,-2">
         <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="0"/>
-                <GradientStop Color="#FF344869" Offset="1"/>
-            </LinearGradientBrush>
+            <ImageBrush ImageSource="icons/FundoCinzaPreto.png"/>
         </Grid.Background>
-        <MediaElement x:Name="videoMain" Source="C:\Users\gabrielsena\Videos\Band_of_Brothers_Trailer.mp4" LoadedBehavior="Manual" MediaOpened="videoMain_MediaOpened" Margin="55,83,235,145" /> 
-        
-        <!--<MediaElement x:Name="videoMain" Source="C:\Users\gabri\Videos\Band.Of.Brothers.S01E01.HDTV.Subtitulado.Esp.SC.avi" LoadedBehavior="Manual" MediaOpened="videoMain_MediaOpened" Margin="55,83,235,145" /> -->
-        <Button x:Name="addVideo" Content="..." HorizontalAlignment="Left" Margin="51,46,0,0" VerticalAlignment="Top" Width="24" RenderTransformOrigin="3.194,1.313" Click="addVideo_Click" Height="18"/>
-        <Slider x:Name="barrinha" HorizontalAlignment="Left" Margin="138,417,0,0" VerticalAlignment="Top" Width="504" ValueChanged="Slider_ValueChanged"/>
+        <!--<MediaElement x:Name="videoMain" Source="C:\Users\gabrielsena\Videos\Band_of_Brothers_Trailer.mp4" LoadedBehavior="Manual" MediaOpened="videoMain_MediaOpened" Margin="39,49,236,164" />-->
 
-        <TextBox x:Name="txtFile" HorizontalAlignment="Left" Height="21" Margin="80,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="562"/>
-        <Slider x:Name="volu" VerticalAlignment="Center" ValueChanged="ChangeMediaVolume" Minimum="0" Maximum="1" Value="0.5" Width="70" Margin="572,440,244,91" RenderTransformOrigin="0.571,-2.389"/>
-        <Label x:Name="lblDuration" Content="00:00" HorizontalAlignment="Left" Margin="69,409,0,0" VerticalAlignment="Top" Background="Black" Foreground="White" FontSize="16" RenderTransformOrigin="-0.761,1.138"/>
+        <MediaElement x:Name="videoMain" Source="C:\Users\gabri\Videos\Band.Of.Brothers.S01E01.HDTV.Subtitulado.Esp.SC.avi" LoadedBehavior="Manual" MediaOpened="videoMain_MediaOpened" Margin="35,49,240,172" />
+        <Button x:Name="addVideo" Content="+" HorizontalAlignment="Left" Margin="852,49,0,0" VerticalAlignment="Top" Width="24" RenderTransformOrigin="3.194,1.313" Click="addVideo_Click" Height="18"/>
+        <Slider x:Name="barrinha" HorizontalAlignment="Left" Margin="109,391,0,0" VerticalAlignment="Top" Width="537" ValueChanged="Slider_ValueChanged" Height="17"/>
+        <Label x:Name="lblDuration" Content="00:00" HorizontalAlignment="Left" Margin="44,382,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontSize="16" RenderTransformOrigin="-0.761,1.138"/>
 
-        <Button x:Name="btnPlayPause" Click="btnPlayPause_Click" Margin="319,440,517,57" RenderTransformOrigin="1.99,0.604" BorderBrush="{x:Null}" Style="{StaticResource MyButton}" Focusable="False">
+        <Button x:Name="btnPlayPause" Click="btnPlayPause_Click" Margin="319,429,517,68" RenderTransformOrigin="1.99,0.604" BorderBrush="{x:Null}" Style="{StaticResource MyButton}" Focusable="False">
             <Button.Background>
                 <ImageBrush ImageSource="/icons/ic_play.ico"/>
             </Button.Background>
         </Button>
-              
-        <Button x:Name="btnLigDes" Click="btnLigDes_Click" Margin="244,462,592,35" RenderTransformOrigin="1.99,0.604" BorderBrush="{x:Null}" Style="{StaticResource MyButton}" Focusable="False">
+
+        <Button x:Name="btnLigDes" Click="btnLigDes_Click" Margin="269,462,567,35" RenderTransformOrigin="1.99,0.604" BorderBrush="{x:Null}" Style="{StaticResource MyButton}" Focusable="False">
             <Button.Background>
                 <ImageBrush ImageSource="/icons/ic_power_on.ico"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnHideShow" Click="btnHideShow_Click" Margin="182,497,654,0" RenderTransformOrigin="1.99,0.604" BorderBrush="{x:Null}" Style="{StaticResource MyButton}" Focusable="False">
+        <Button x:Name="btnHideShow" Click="btnHideShow_Click" Margin="219,487,617,10" RenderTransformOrigin="1.99,0.604" BorderBrush="{x:Null}" Style="{StaticResource MyButton}" Focusable="False">
             <Button.Background>
-                <ImageBrush ImageSource="/icons/ic_hide_on.ico"/>
+                <ImageBrush ImageSource="/icons/hide_ic.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnFullScreen" Click="btnFullScreen_Click" Margin="389,462,447,35" RenderTransformOrigin="1.99,0.604" BorderBrush="{x:Null}" Style="{StaticResource MyButton}" Focusable="False">
+        <Button x:Name="btnFullScreen" Click="btnFullScreen_Click" Margin="369,462,467,35" RenderTransformOrigin="1.99,0.604" BorderBrush="{x:Null}" Style="{StaticResource MyButton}" Focusable="False">
             <Button.Background>
                 <ImageBrush ImageSource="/icons/ic_fullscreen_on.ico"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnSettingsQuad" Click="btnSettingsQuad_Click" Margin="462,487,374,10" RenderTransformOrigin="1.99,0.604" BorderBrush="{x:Null}" Style="{StaticResource MyButton}" Focusable="False">
+        <Button x:Name="btnSettingsQuad" Click="btnSettingsQuad_Click" Margin="419,487,417,10" RenderTransformOrigin="1.99,0.604" BorderBrush="{x:Null}" Style="{StaticResource MyButton}" Focusable="False">
             <Button.Background>
                 <ImageBrush ImageSource="/icons/ic_settingsQuad.ico"/>
             </Button.Background>
         </Button>
+        <ListBox x:Name="playlistBox" HorizontalAlignment="Left" Height="327" Margin="651,72,0,0" VerticalAlignment="Top" Width="225" SelectionChanged="playlistBox_SelectionChanged"/>
     </Grid>
 </Window>

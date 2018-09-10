@@ -24,15 +24,10 @@ namespace HoloMake
         UIElement displayLeftObj;
         UIElement displayRightObj;            
 
-        public QuadWin(MediaElement videoM)
+        public QuadWin()
         {
             InitializeComponent();
-
-            displayTop.Fill = new VisualBrush(videoM);
-            displayLeft.Fill = new VisualBrush(videoM);
-            displayRight.Fill = new VisualBrush(videoM);
-            displayBottom.Fill = new VisualBrush(videoM);
-
+                  
             //Seta o valor máximo das barras
             double maxComp = Height / 4;
             sliderHT.Maximum = maxComp;
@@ -54,7 +49,14 @@ namespace HoloMake
 
             sliderH.Value = displayTop.Height;
             sliderW.Value = displayTop.Width;
-        }   
+        }
+        public void espelharMidias(MediaElement videoM)
+        {            
+            displayTop.Fill = new VisualBrush(videoM);
+            displayLeft.Fill = new VisualBrush(videoM);
+            displayRight.Fill = new VisualBrush(videoM);
+            displayBottom.Fill = new VisualBrush(videoM);
+        }
 
         private void btnMenosH_Click(object sender, RoutedEventArgs e)
         {            

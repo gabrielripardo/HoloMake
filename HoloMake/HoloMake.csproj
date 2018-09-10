@@ -131,6 +131,9 @@
     <Resource Include="icons\ic_hide_on.ico" />
     <Resource Include="icons\ic_fullscreen_on.ico" />
     <Resource Include="icons\ic_settingsQuad.ico" />
+    <Resource Include="icons\FundoCinzaPreto.png" />
+    <Resource Include="icons\ic_reduce.ico" />
+    <Resource Include="icons\hide_ic.png" />
     <Content Include="things\Band_of_Brothers_Trailer.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
